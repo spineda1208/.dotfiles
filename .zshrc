@@ -11,6 +11,9 @@ export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 export PATH="/opt/homebrew/opi/bison/bin:$PATH"
 export PATH="/Users/santiagopineda/go/bin/:$PATH"
 
+# EDITOR Variable
+export EDITOR="nvim"
+
 # Bun
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
@@ -52,9 +55,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Vim keybindings
 # bindkey -v
-bindkey -s '^n' '^unvim .\n'
-bindkey -s '^t' '^utmux a\n'
-bindkey -s '^s' '^usource ~/.zshrc\n'
+# bindkey -s '^n' '^unvim .\n'
+# bindkey -s '^t' '^utmux a\n'
+# bindkey -s '^s' '^usource ~/.zshrc\n'
 
 # Aliases
 alias zshc="nvim ~/.zshrc && source ~/.zshrc"
