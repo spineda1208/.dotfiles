@@ -7,6 +7,7 @@ import = ["~/.config/alacritty/themes/themes/smoooooth.toml"]
 # import = ["~/.config/alacritty/themes/themes/xterm.toml"]
 
 [window]
+option_as_alt = "Both"
 startup_mode = "Maximized"
 decorations = "None"
 opacity = 0.75
@@ -19,3 +20,4 @@ size = 11
 [colors.primary]
 # background = "#1c1c1c"
 background = "#0A0A0A"
+
