@@ -1,10 +1,5 @@
 # Alacritty Config
-# import = ["~/.config/alacritty/themes/themes/iterm.toml"]
-# import = ["~/.config/alacritty/themes/themes/alabaster_dark.toml"]
-# import = ["~/.config/alacritty/themes/themes/hyper.toml"]
 import = ["~/.config/alacritty/themes/themes/smoooooth.toml"]
-# import = ["~/.config/alacritty/themes/themes/terminal_app.toml"]
-# import = ["~/.config/alacritty/themes/themes/xterm.toml"]
 
 [window]
 option_as_alt = "Both"
@@ -14,10 +9,9 @@ opacity = 0.75
 padding = { x = 0, y = 0}
 
 [font]
-normal = { family = "MesloLGS NF", style = "Regular"}
+normal = { family = "MesloLGS Nerd Font", style = "Regular"}
 size = 11
 
 [colors.primary]
-# background = "#1c1c1c"
 background = "#0A0A0A"
 
