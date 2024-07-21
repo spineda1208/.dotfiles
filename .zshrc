@@ -8,12 +8,17 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+export PATH="/opt/homebrew/opi/bison/bin:$PATH"
+export PATH="/Users/santiagopineda/go/bin/:$PATH"
 
-# BUN
+# Bun
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 
-# PYENV
+# Bun completions
+[ -s "/Users/santiagopineda/.dotfiles/.bun/_bun" ] && source "/Users/santiagopineda/.dotfiles/.bun/_bun"
+
+# Pyenv
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init --path)"
@@ -21,12 +26,12 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-
-# NVM is a slow piece of shit though
-# NVM
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+# OPAM Configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/santiagopineda/.opam/opam-init/init.zsh' ]] || source '/Users/santiagopineda/.opam/opam-init/init.zsh' >/dev/null 2>/dev/null
 
 # Zoxide
 eval "$(zoxide init zsh)"
@@ -38,15 +43,15 @@ alias tetris="termtris"
 
 # Oh-My-Zsh Configurations
 export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh
 
+# Starship Configuration
+# eval "$(starship init zsh)"
+
 # Vim keybindings
-bindkey -v
+# bindkey -v
 bindkey -s '^n' '^unvim .\n'
 bindkey -s '^t' '^utmux a\n'
 bindkey -s '^s' '^usource ~/.zshrc\n'
@@ -75,17 +80,6 @@ alias rmsymlinks="find ~ -maxdepth 1 -type l -exec test ! -e {} \; -delete"
 #   fi
 # "
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# p10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# bun completions
-[ -s "/Users/santiagopineda/.dotfiles/.bun/_bun" ] && source "/Users/santiagopineda/.dotfiles/.bun/_bun"
-
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/santiagopineda/.opam/opam-init/init.zsh' ]] || source '/Users/santiagopineda/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
