@@ -4,14 +4,19 @@ import = ["~/.config/alacritty/themes/themes/smoooooth.toml"]
 [window]
 option_as_alt = "Both"
 startup_mode = "Maximized"
-decorations = "None"
+decorations = "buttonless"
 opacity = 0.75
 padding = { x = 0, y = 0}
 
 [font]
 normal = { family = "MesloLGS Nerd Font", style = "Regular"}
+italic = { family = "MesloLGS Nerd Font", style = "Regular"}
 size = 11
 
 [colors.primary]
 background = "#0A0A0A"
 
+[keyboard]
+bindings = [
+{key = "F", mods = "Command|Control", action = "ToggleMaximized" }
+]

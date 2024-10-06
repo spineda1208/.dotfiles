@@ -8,11 +8,14 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="/opt/homebrew/opt/bison/bin:$PATH"
-export PATH="/opt/homebrew/opi/bison/bin:$PATH"
+# export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 export PATH="/Users/santiagopineda/go/bin/:$PATH"
+export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
 
-# EDITOR Variable
+# Environment Variables
 export EDITOR="nvim"
+# export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
 
 # Bun
 # export BUN_INSTALL="$HOME/.bun"
@@ -29,13 +32,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-# OPAM Configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/santiagopineda/.opam/opam-init/init.zsh' ]] || source '/Users/santiagopineda/.opam/opam-init/init.zsh' >/dev/null 2>/dev/null
-
 # Zoxide
 eval "$(zoxide init zsh)"
 alias cd="z"
@@ -50,16 +46,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
-# Starship Configuration
-# eval "$(starship init zsh)"
-
-# Vim keybindings
-# bindkey -v
-# bindkey -s '^n' '^unvim .\n'
-# bindkey -s '^t' '^utmux a\n'
-# bindkey -s '^s' '^usource ~/.zshrc\n'
-
 # Aliases
+alias db="psql -h saveware-postgresql-test.postgres.database.azure.com -p 5432 -U postgres_father postgres"
+alias test-db="psql -h saveware-postgresql-test.postgres.database.azure.com -p 5432 -U postgres_father postgres"
 alias zshc="nvim ~/.zshrc && source ~/.zshrc"
 alias nvimc="~/Scripts/nvim_access.sh ~/.config/nvim/"
 alias tmuxc="nvim ~/.config/tmux/tmux.conf"
@@ -67,22 +56,23 @@ alias ohmyzsh="nvim ~/.oh-my-zsh source ~/.zshrc"
 alias termc="nvim ~/.config/alacritty/alacritty.toml source ~/.zshrc"
 
 alias reindex="sudo mdutil -E /"
+alias gcc="gcc-14"
 
 alias restart="sudo shutdown -r now"
 alias trash="send2trash"
 alias sleepy="sudo shutdown -s now"
 alias ip="ipconfig getifaddr en0"
 alias rmsymlinks="find ~ -maxdepth 1 -type l -exec test ! -e {} \; -delete"
+alias cmpsc="ssh sbp5827@e5-cse-goliath.cse.psu.edu"
 
-# Tmux session alias
-# "
-#   if tmux has-session -t $SESSION_NAME 2>/dev/null; then
-#     tmux attach-session -t $SESSION_NAME
-#   else
-#     tmux new-session -s $SESSION_NAME -c /path/to/project
-#   fi
-# "
+c() {
+    clang "$1" -o test
+    ./test
+    rm ./test
+}
 
 # p10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# dune
+export PATH="/Users/santiagopineda/.dune/bin:$PATH"
