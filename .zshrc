@@ -47,7 +47,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
-alias db="psql -h saveware-postgresql-test.postgres.database.azure.com -p 5432 -U postgres_father postgres"
+alias db="psql -h saveware-postgresql.postgres.database.azure.com -p 5432 -U postgres_father postgres"
 alias test-db="psql -h saveware-postgresql-test.postgres.database.azure.com -p 5432 -U postgres_father postgres"
 alias zshc="nvim ~/.zshrc && source ~/.zshrc"
 alias nvimc="~/Scripts/nvim_access.sh ~/.config/nvim/"
